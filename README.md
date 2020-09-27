@@ -273,3 +273,21 @@ function Search() {
   );
 }
 ```
+
+</details>
+
+That's it, you now know enough React Router to build a whole Single-Page App.
+
+## Bonus: deployment
+
+We can now deploy this app to a static host like Netlify. There is one gotcha however. Since this is still a _Single-Page_ App our server will only know about one route: the home route. It will correctly respond with the `index.html` file containing our app here, but for any other route it will respond with a `404`.
+
+For example if we try to load `/movies` the server will look for a `movies.html` or `/movies/index.html` file. Since these don't exist the request will fail.
+
+The solution is to configure your static host to _always_ serve the `index.html` file for every route. This [can be done for Netlify](https://docs.netlify.com/routing/redirects/rewrites-proxies/#history-pushstate-and-single-page-apps) by creating a file named `_redirects` inside the `public/` directory containing:
+
+```
+/* /index.html 200
+```
+
+This tells Netlify to redirect any unrecognised request to the `index.html` file with a 200 (success) status code.
