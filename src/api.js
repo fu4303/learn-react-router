@@ -1,12 +1,15 @@
-import React from "react";
-
 export function getAllMovies() {
   return movies.map((movie) => ({ id: movie.id, title: movie.title }));
 }
 
 export function getMovie(id) {
+  if (typeof id !== "number") {
+    throw new Error(`ID must be a number. '${id}' is a ${typeof id}`);
+  }
   const movie = movies.find((movie) => movie.id === id);
-  if (!movie) throw new Error(`Movie ID ${id} not found`);
+  if (!movie) {
+    throw new Error(`Movie with ID ${id} not found`);
+  }
   return movie;
 }
 
