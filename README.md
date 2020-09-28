@@ -59,8 +59,8 @@ function App() {
       </nav>
       <main>
         <Switch>
-          <Route path="/">
-            <Home exact />
+          <Route path="/" exact>
+            <Home />
           </Route>
           <Route path="/movies">
             <AllMovies />
