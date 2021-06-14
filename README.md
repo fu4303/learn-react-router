@@ -114,7 +114,7 @@ function AllMovies() {
 
 ## Part three: movie details
 
-We now have links to each specific movie page, but you should see a blank page when you click them. This is because we have no Route that matches any of these URLs.
+We now have links to each specific movie page, but you should see the fallback Route when you click them. This is because we have no Route that matches any of these URLs.
 
 We can't add a Route component for every possible ID—instead we need to use a placeholder to represent any value that might appear in the URL at that position. This is called a "URL param" and works just like in Express.
 
